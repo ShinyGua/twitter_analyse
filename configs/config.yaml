@@ -1,0 +1,22 @@
+proxy_ip:
+  list_path: "config/proxy_ip_list/Free_Proxy_List.json"
+  iteration: 100
+
+datasets:
+  company_path: "datasets/Company.dta"
+  company_industry_relation_path: "datasets/CompanyIndustryRelation.dta"
+  deal_path: "datasets/Deal.dta"
+
+tw:
+  header:
+    x_csrf_token: ""
+    cookie: ''
+    authorization: ''
+
+  output_dir: "output"
+  output_company_columns_names: ['companyid', 'companyname', 'hqcountry', 'businessstatus', 'companyfinancingstatus', 'twitterprofileurl']
+  output_deal_columns_names: ['companyid', 'nativecurrencyofdeal', 'dealno',
+                              'dealdate', 'premoneyvaluation', 'postvaluation',
+                              'postvaluationstatus', 'raisedtodate',
+                              'dealtype', 'dealclass', 'dealstatus']
+
