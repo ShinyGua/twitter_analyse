@@ -1,0 +1,8 @@
+linkedin_test.py
+tt-download.py
+configs/config_1.yaml
+
+__pycache__/
+output/
+datasets/
+```

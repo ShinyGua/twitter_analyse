@@ -16,12 +16,6 @@ _C.proxy_ip = CN()
 _C.proxy_ip.list_path = "config/proxy_ip_list/Free_Proxy_List.json"  # the proxy ip list path
 _C.proxy_ip.iteration = 100  # the iteration of change the proxy ip
 
-# datasets config
-_C.datasets = CN()
-_C.datasets.company_path = "datasets/Company.dta"  # the company list path
-_C.datasets.company_industry_relation_path = "datasets/CompanyIndustryRelation.dta"  # the company industry list path
-_C.datasets.deal_path = "datasets/Deal.dta"  # the deal list path
-
 # the twitter api config
 _C.tw = CN()
 _C.tw.header = CN()
@@ -36,24 +30,52 @@ _C.tw.header.x_csrf_token = ''
 _C.tw.header.cookie = ''
 _C.tw.header.authorization = ''
 
-_C.tw.output_dir = "output"  # the output dir
-_C.tw.output_company_columns_names = []
-_C.tw.output_deal_columns_names = []
-
 # save frequency
 _C.tw.save_frequency = 100
 
-# the linkin config
+# the linkedin config
 _C.lk = CN()
-_C.lk.cookis = CN()
-_C.lk.cookis.li_at = ''
-_C.lk.cookis.li_at_expires = ''
-_C.lk.cookis.li_at_max_age = ''
+# the linkedin cookies
+_C.lk.cookies = CN()
+_C.lk.cookies.li_at = ''
+_C.lk.cookies.JSESSIONID = ''
+
+# the linkedin params
+_C.lk.params = CN()
+_C.lk.params.origin = 0
+_C.lk.params.queryContext = "List(spellCorrectionEnabled->false,relatedSearchesEnabled->false,kcardTypes->PROFILE|COMPANY)"
+_C.lk.params.sortBy = "date_posted"
+_C.lk.params.sid = "MKH"
+_C.lk.params.queryId = "voyagerSearchDashClusters.b0928897b71bd00a5a7291755dcd64f0"
+
+# the linkedin params key
+_C.lk.params.key = CN()
+_C.lk.params.key.resultType = "List(CONTENT)"
+_C.lk.params.key.sortBy = "date_posted"
+_C.lk.params.key.spellCorrectionEnabled = "List(false)"
+
+# the google params
+_C.google = CN()
+_C.google.api_key = ""
+_C.google.tw_cse_id = ""
+_C.google.lk_cse_id = ""
+
+# filer
+_C.filer = CN()
+# datasets config
+_C.filer.datasets = CN()
+_C.filer.datasets.company_path = "datasets/Company.dta"  # the company list path
+_C.filer.datasets.company_industry_relation_path = "datasets/CompanyIndustryRelation.dta"  # the company industry list path
+_C.filer.datasets.deal_path = "datasets/Deal.dta"  # the deal list path
+_C.filer.output_company_columns_names = []
+_C.filer.output_deal_columns_names = []
+
+_C.output_dir = "output"  # the output dir
 
 
 def parse_option():
     parser = argparse.ArgumentParser('scrape the tweets', add_help=False)
-    parser.add_argument('--cfg', type=str, default="configs/config.yaml", metavar="FILE", help='path to config file')
+    parser.add_argument('--cfg', type=str, default="configs/config_1.yaml", metavar="FILE", help='path to config file')
 
     args, unparsed = parser.parse_known_args()
     config = get_config(args)

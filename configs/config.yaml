@@ -2,21 +2,38 @@ proxy_ip:
   list_path: "config/proxy_ip_list/Free_Proxy_List.json"
   iteration: 100
 
-datasets:
-  company_path: "datasets/Company.dta"
-  company_industry_relation_path: "datasets/CompanyIndustryRelation.dta"
-  deal_path: "datasets/Deal.dta"
-
 tw:
   header:
     x_csrf_token: ""
     cookie: ''
     authorization: ''
 
-  output_dir: "output"
+lk:
+  cookies:
+    li_at: ''
+    JSESSIONID: ''
+  params:
+    queryId: "voyagerSearchDashClusters.b0928897b71bd00a5a7291755dcd64f0"
+    sid: "MKH"
+    sortBy: "date_posted"
+    queryContext: "List(spellCorrectionEnabled->false,relatedSearchesEnabled->false,kcardTypes->PROFILE|COMPANY)"
+    key:
+      resultType: "List(CONTENT)"
+      sortBy: "date_posted"
+      spellCorrectionEnabled: "List(false)"
+
+google:
+  api_key: ""
+  tw_cse_id: ""
+  lk_cse_id: ""
+
+filer:
+  datasets:
+    company_path: "datasets/Company.dta"
+    company_industry_relation_path: "datasets/CompanyIndustryRelation.dta"
+    deal_path: "datasets/Deal.dta"
   output_company_columns_names: ['companyid', 'companyname', 'hqcountry', 'businessstatus', 'companyfinancingstatus', 'twitterprofileurl']
   output_deal_columns_names: ['companyid', 'nativecurrencyofdeal', 'dealno',
                               'dealdate', 'premoneyvaluation', 'postvaluation',
                               'postvaluationstatus', 'raisedtodate',
                               'dealtype', 'dealclass', 'dealstatus']
-
